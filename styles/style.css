@@ -1,0 +1,30 @@
+body {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.logo{
+    margin-left: 102px;
+    margin-top:  -27px;
+    color: #AD7FFB;
+    font-size: 64px;
+    font-weight: 900;
+}
+
+.line{
+    margin-top: 127px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.line a{
+    font-size: 32px;
+    color: black;
+}
+
+.book{
+    text-align: center;
+    margin-top: 296px;
+    font-size:64px;
+    font-weight: 700px;
+}
