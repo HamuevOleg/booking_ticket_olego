@@ -2,29 +2,57 @@ body {
   font-family: "Kumbh Sans", sans-serif;
 }
 
+header{
+    padding: 0;
+}
 .logo{
-    margin-left: 102px;
-    margin-top:  -27px;
+    /* margin-left: 102px; */
+    /* margin-top:  -27px; */
     color: #AD7FFB;
-    font-size: 64px;
+    font-size: 40px;
     font-weight: 900;
 }
 
 .line{
-    margin-top: 127px;
     display: flex;
-    width: 100%;
     justify-content: space-between;
 }
 
 .line a{
-    font-size: 32px;
+    font-size: 20px;
+    font-weight: 700;
     color: black;
 }
 
-.book{
+.book  h1{
     text-align: center;
     margin-top: 296px;
-    font-size:64px;
-    font-weight: 700px;
+    font-size: 40px;
+    font-weight:900;
+}
+
+.log_in{
+    background-color:#AD7FFB;
+    width: 100px;
+    height: 40px;
+    border-radius: 24px;
+    margin-right: 180px;
+}
+
+.header__right{
+    justify-content: space-between;
+    display: flex;
+    background-color: black;
+    gap: 24px;
+}
+.header__right .menu-item{
+    height: 20px;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #e8dbfc;
+    border-radius: 24px;
+}
+
+a{
+    text-decoration: none;
 }
