@@ -152,13 +152,28 @@ a{
 
 .tab_default {
     font-weight: 700;
+    color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.tab_default:hover{
+    transition: all 0.3s ease;
+    transform: translateY(-4px);
+    border-bottom-width: 2px;
+    display: inline-block;
+    border-bottom-style: solid;
+
 }
 
 .tab_active{
-    font-weight: 700;
-    border-bottom: 2px solid #000000;
+    font-size: 20px;
+    font-weight: 900;
 }
 
+.tab_active:hover{
+    transition: all 0.3s ease;
+    font-size: 20px;
+}
 .main_form{
     display: flex;
     justify-content: center;
@@ -167,10 +182,28 @@ a{
     background-color: white;
     border: 2px solid #F6F5FF;
     padding: 8px;
-    margin-right: 400px;
-    margin-left:  400px;
+    margin-right: 300px;
+    margin-left:  300px;
     align-items: center;
     border-radius: 48px;
+}
+
+#input_field{
+    width: 200px;
+    height: 48px;
+    border: 1px solid #ffffff;
+    border-radius: 32px;
+    padding-left: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex: 1;
+}
+
+#input_field:hover{
+        border: 1px solid #c6c5c5;
 }
 
 .input_field{
@@ -216,9 +249,48 @@ a{
     margin-top: 12px;
 }
 
+.planet_wrapper {
+    position: relative;
+}
+
 .planet{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -25%);
+    transform: translate(-50%, 0%);
+}
+
+.planet_text{
+    font-size: 36px;
+    color: #8f5de9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 250px;
+}
+
+.planet_text:hover{
+    transition: all 0.2s ease;
+    transform: scaleY(-4px);
+}
+
+.recent_boxes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.seach_box{
+    display: flex;
+    justify-content: center;
+    background-color: #a7a7a7;
+    backdrop-filter: blur(16px);
+    width: 150px;
+    height: 150px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.seach_box:hover{
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translateY(-4px);
 }

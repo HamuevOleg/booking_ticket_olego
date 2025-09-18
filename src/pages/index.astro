@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html> 
 	<head>
@@ -17,7 +20,6 @@
 					<a href ="">Hotels </a>
 				</div>
 				<span class="header__right">
-					
 					<div class="menu-item">
 						USD</div>
 					<div class="menu-item">
@@ -38,31 +40,57 @@
 				</span>
 				</div>
 		</header>
-			<div class="book">
-				<h1>Book your Travel</h1>
+		<div class="book">
+			<h1>Book your Travel</h1>
+		</div>
+		<span class="trip_type">
+			<div id = "one_way"    class="tab_default">
+				One-Way
 			</div>
-			<span class="trip_type">
-				<div id = "one_way" class="tab_default">
-					One-Way
-				</div>
-				<div id = "round_trip" class="tab_active">
-					Round-Trip
-				</div>
-				<div id = "multi_city" class="tab_default">
-					Multi-City
-				</div>
-			</span>
-			<form class ="main_form">
-				<input type="text" class = "input_field" placeholder="From">
-				<div class="line_one"></div>
-				<input type="text" class = "input_field" placeholder="To">
-				<div class="line_one"></div>
-				<input type="text" class = "input_field" placeholder="Depart">
-				<div class="line_one"></div>
-				<input type="text" class = "input_field" placeholder="Type of class">
-				<button class = "search_flights">Search</button>
-			</form>
-		<img class = "planet" src = "../../src/assets/planet.png" alt = "airplane" class = "airplane">
+			<div id = "round_trip" class="tab_active">
+				Round-Trip
+			</div>
+			<div id = "multi_city" class="tab_default">
+				Multi-City
+			</div>
+		</span>
+		<form class ="main_form">
+			<input type="text" id = "input_field" placeholder="From">
+			<div class="line_one"></div>
+			<input type="text" id = "input_field" placeholder="To">
+			<div class="line_one"></div>
+			<input type="text" id = "input_field" placeholder="Depart">
+			<div class="line_one"></div>
+			<input type="text" class = "input_field" placeholder="Type of class">
+			<button class = "search_flights">Search</button>
+		</form>
+					<div class="planet_text">
+				Your recent searches
+			</div>
+		<div class="planet_wrapper">
+			<!-- <img class = "planet" src = "../../src/assets/planetus.png" alt = "airplane" class = "airplane"> -->
+		</div>
+		
+		<span class = "recent_boxes">
+			<div class="seach_box">meow</div>
+			<div class="seach_box">meow</div>
+			<div class="seach_box">meow</div>
+		</span>
+		<script is:inline>
+			const tabs = document.querySelectorAll(".trip_type div");
+
+			tabs.forEach(tab => {
+				tab.addEventListener("click", () => {
+				tabs.forEach(t => {
+					t.classList.remove("tab_active");
+					t.classList.add("tab_default");
+				});
+
+				tab.classList.remove("tab_default");
+				tab.classList.add("tab_active");
+				});
+			});
+		</script>
 	</body>
 </html>
 
