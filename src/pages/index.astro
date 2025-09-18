@@ -5,17 +5,17 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
-
 		<title>
 			OLEGO - Book and Fly
 		</title>
 	</head>
 	<body>
-		<header>
-			<span class ="line">	
-				<h1 class = "logo">OLEGO</h1>
-				<a href ="">Flights</a>
-				<a href ="">Hotels </a>
+		<header>	
+				<div class = "logo">OLEGO</div>
+				<div class="main_menu">
+					<a href ="">Flights</a>
+					<a href ="">Hotels </a>
+				</div>
 				<span class="header__right">
 					
 					<div class="menu-item">
@@ -23,15 +23,46 @@
 					<div class="menu-item">
 						Support 24/7
 					</div>
-				</span>
-				<div class="log_in">
+					<div class="log_in">
+						<svg class = "menu_avatar" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" data-v-97966b10="">
+							<path d="M12 15.25C13.0424 15.25 15.1503 15.3914 17.0264 16.1357C18.9112 16.8837 20.75 18.3351 20.75 21C20.75 21.4142 20.4142 21.75 20 21.75C19.5858 21.75 19.25 21.4142 19.25 21C19.25 19.2205 18.0887 18.1712 16.4736 17.5303C14.8498 16.8859 12.9575 16.75 12 16.75C11.0425 16.75 9.15016 16.8859 7.52637 17.5303C5.91133 18.1712 4.75 19.2205 4.75 21C4.75 21.4142 4.41421 21.75 4 21.75C3.58579 21.75 3.25 21.4142 3.25 21C3.25 18.3351 5.08876 16.8837 6.97363 16.1357C8.84974 15.3914 10.9576 15.25 12 15.25Z" fill="#816EFC" data-v-97966b10=""></path>
+							<!-- <path id="hippo" fill-rule="evenodd" clip-rule="evenodd" d="M11.4772 0.0764996C15.7938 -0.468524 17.2997 2.02058 17.5134 3.33334L17.9343 6.47494C17.7452 6.56947 17.4214 6.70777 16.988 6.86556C17.1565 7.38016 17.2497 7.92941 17.2497 8.50033C17.2495 11.3997 14.8991 13.7503 11.9997 13.7503C9.10038 13.7502 6.74987 11.3996 6.74968 8.50033C6.74968 8.47501 6.7503 8.44939 6.75066 8.42416C4.09964 8.57726 1.74714 8.59326 1.62175 8.27767C1.37488 7.64929 4.75068 7.14493 5.77214 6.94759V3.89193C5.77218 2.42034 6.0815 0.757782 11.4772 0.0764996ZM15.5583 7.31673C14.9871 7.4734 14.3388 7.62721 13.6315 7.7513C12.5439 7.94209 10.4183 8.16561 8.25359 8.32455C8.25091 8.38269 8.24968 8.44153 8.24968 8.50033C8.24987 10.5712 9.92881 12.2502 11.9997 12.2503C14.0706 12.2503 15.7495 10.5712 15.7497 8.50033C15.7497 8.08675 15.6819 7.68879 15.5583 7.31673Z" fill="#816EFC" data-v-97966b10=""></path> -->
+							<path id="circle" fill-rule="evenodd" clip-rule="evenodd" d="M12 2.25C14.8995 2.25 17.25 4.60051 17.25 7.5C17.25 10.3995 14.8995 12.75 12 12.75C9.1005 12.75 6.75 10.3995 6.75 7.5C6.75 4.60051 9.1005 2.25 12 2.25ZM12 3.75C9.92893 3.75 8.25 5.42893 8.25 7.5C8.25 9.57107 9.92893 11.25 12 11.25C14.0711 11.25 15.75 9.57107 15.75 7.5C15.75 5.42893 14.0711 3.75 12 3.75Z" fill="#816EFC" data-v-97966b10="" data-original="M12 2.25C14.8995 2.25 17.25 4.60051 17.25 7.5C17.25 10.3995 14.8995 12.75 12 12.75C9.1005 12.75 6.75 10.3995 6.75 7.5C6.75 4.60051 9.1005 2.25 12 2.25ZM12 3.75C9.92893 3.75 8.25 5.42893 8.25 7.5C8.25 9.57107 9.92893 11.25 12 11.25C14.0711 11.25 15.75 9.57107 15.75 7.5C15.75 5.42893 14.0711 3.75 12 3.75Z"></path>
+						</svg>
+						<svg class ="menu_icon"xmlns="http://www.w3.org/2000/svg" width="25" height="17" viewBox="0 0 25 17" fill="none">
+							<line y1="16.5" x2="25" y2="16.5" stroke="white"/>
+							<line y1="0.5" x2="25" y2="0.5" stroke="white"/>
+							<line x1="3" y1="8.5" x2="22" y2="8.5" stroke="white"/>
+						</svg>
 					<!-- <img src = "src/assets/Frame 3.svg" alt = "log_in"> -->
+				</span>
 				</div>
-			</span>	
+		</header>
 			<div class="book">
 				<h1>Book your Travel</h1>
 			</div>
-		</header>
+			<span class="trip_type">
+				<div id = "one_way" class="tab_default">
+					One-Way
+				</div>
+				<div id = "round_trip" class="tab_active">
+					Round-Trip
+				</div>
+				<div id = "multi_city" class="tab_default">
+					Multi-City
+				</div>
+			</span>
+			<form class ="main_form">
+				<input type="text" class = "input_field" placeholder="From">
+				<div class="line_one"></div>
+				<input type="text" class = "input_field" placeholder="To">
+				<div class="line_one"></div>
+				<input type="text" class = "input_field" placeholder="Depart">
+				<div class="line_one"></div>
+				<input type="text" class = "input_field" placeholder="Type of class">
+				<button class = "search_flights">Search</button>
+			</form>
+		<img class = "planet" src = "../../src/assets/planet.png" alt = "airplane" class = "airplane">
 	</body>
 </html>
 
