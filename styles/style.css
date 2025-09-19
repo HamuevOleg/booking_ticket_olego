@@ -47,8 +47,19 @@ table {
 	border-spacing: 0;
 }
 
+
 body {
   font-family: "Kumbh Sans", sans-serif;
+}
+
+.background__photo{
+    background-image: url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\back.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    width: 100%;
+
 }
 
 header{
@@ -60,13 +71,22 @@ header{
 .logo{
     /* margin-left: 102px; */
     /* margin-top:  -27px; */
-    color: #AD7FFB;
+    color: white;
     font-size: 40px;
     font-weight: 900;
     line-height: 40px;
     height: 40px;
     width: 320px;
+    transition: all 0.3s ease;
 }
+
+.logo:hover{
+    transition: all 0.3s ease;
+    color: #00B7B9;
+    letter-spacing: 5px;
+    font-size: 42px;
+}
+
 
 .main_menu{
     display: flex;
@@ -74,28 +94,31 @@ header{
     align-items: center;
     font-size: 16px;
     font-weight: 600;
-    color: rgb(0, 0, 0);
 }
 
 .main_menu a{
+    color: white;
     transition: all 0.3s ease;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .main_menu a:hover{
-    color: #AD7FFB;
+    color: #ffc8c8;
     transform: translateY(-4px);
+    font-size: 20px;
 }
 
 .book  h1{
     text-align: center;
     margin-top: 88px;
-    font-size: 40px;
-    font-weight:900;
+    font-size: 64px;
+    font-weight: 800;
+    color: white;
 }
 
 .log_in{
-    background-color:#AD7FFB;
+    background-color:#00B7B9;
     border-radius: 24px;
     display: flex;
     align-items: center;
@@ -126,14 +149,17 @@ header{
 }
 
 .menu-item{
+    color:rgb(255, 255, 255);
     height: 20px;
     font-size: 16px;
     padding: 10px;
     border-radius: 24px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-weight: 600;
 } 
 .menu-item:hover{
+    color:black;
     background-color: #f1e9ff;
     transform: translateY(-4px);
 }
@@ -147,13 +173,29 @@ a{
     justify-content: center;
     gap: 40px;
     margin-top: 40px;
-    font-size: 16px;
+    font-size: 20px;
+    margin-left: 600px;
+    margin-right: 600px;
+
+}
+
+.blur_container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    backdrop-filter: blur(4px);
+    padding: 16px 32px;
+    border-radius: 48px;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 20px;
 }
 
 .tab_default {
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
 }
 
 .tab_default:hover{
@@ -162,25 +204,28 @@ a{
     border-bottom-width: 2px;
     display: inline-block;
     border-bottom-style: solid;
+    font-size: 18px;
 
 }
 
 .tab_active{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
+    color:white;
 }
 
 .tab_active:hover{
     transition: all 0.3s ease;
-    font-size: 20px;
+    font-size: 18px;
 }
 .main_form{
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     gap: 16px;
     margin-top: 40px;
-    background-color: white;
-    border: 2px solid #F6F5FF;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 8px;
     margin-right: 300px;
     margin-left:  300px;
@@ -189,6 +234,8 @@ a{
 }
 
 #input_field{
+    /* backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.2); */
     width: 200px;
     height: 48px;
     border: 1px solid #ffffff;
@@ -228,10 +275,10 @@ a{
 .search_flights{
     width: 100px;
     height: 48px;
-    background-color: #AD7FFB;
+    background-color: #00999c;
     border-radius: 32px;
     border: none;
-    color: white;
+    color: #ffffff;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -239,7 +286,7 @@ a{
 }
 
 .search_flights:hover{
-    background-color: #8f5de9;
+    background-color: #00B7B9;
     transform: translateY(-4px);
 }
 
@@ -249,48 +296,65 @@ a{
     margin-top: 12px;
 }
 
-.planet_wrapper {
-    position: relative;
-}
-
-.planet{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-}
-
-.planet_text{
+.text_recent{
     font-size: 36px;
     color: #8f5de9;
     display: flex;
     justify-content: center;
     align-items: center;
-    line-height: 250px;
-}
-
-.planet_text:hover{
-    transition: all 0.2s ease;
-    transform: scaleY(-4px);
+    line-height: 120px;
 }
 
 .recent_boxes{
     display: flex;
     justify-content: space-between;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.seach_box{
+.search_box{
     display: flex;
     justify-content: center;
-    background-color: #a7a7a7;
-    backdrop-filter: blur(16px);
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 200px;
     border-radius: 40px;
     cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    font-weight: 700;
+    transition: all 0.3s ease;
 }
 
-.seach_box:hover{
+.search_box:nth-child(1){
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTliFwZBd6VXoobgMVWE0IyzPo-gakfRXF29w&s");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.search_box:nth-child(2){
+    background-image: url("https://www.newyorkwelcome.net/kimg/1200/good-to-know-before-you-travel-to-nyc.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.search_box:nth-child(3){
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8T65Uo1laywFZIqKM3sspog91cu5LF-fT8g&s");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+}
+
+.search_box:hover{
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     transform: translateY(-4px);
+    opacity: 1;
 }
+
