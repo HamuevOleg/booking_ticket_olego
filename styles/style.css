@@ -306,36 +306,52 @@ a{
     line-height: 120px; 
 }
 
- .choice_type_of_search{
-    display:flex;
-    justify-content: center; 
-    gap: 40px; 
-    padding-bottom: 40px; 
-    padding-top: 20px; 
+input[type="radio"] {
+    display: none;
 }
 
- .active_tab{ 
-    font-size: 18px; 
-    font-weight: 700; 
-    color: #000000; 
-    cursor: pointer; 
-    transition: all 0.3s ease; 
+/* Контейнер для табов */
+.vacation-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+    justify-content: center;
 }
 
- .non_active_tab {
-    font-size: 16px; 
-    font-weight: 600; 
-    color: rgba(0, 0, 0, 0.6); 
-    cursor: pointer; 
-    transition: all 0.3s ease; 
-    display: inline-block; 
-    border-bottom: 2px solid transparent;
- }
-
- .non_active_tab:hover {
-    transform: translateY(-4px) scale(1.125);  
-    border-bottom-color: rgba(0,0,0,0.6); 
+/* Стили для лейблов (кнопки) */
+.vacation-tabs label {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    opacity: 0.6;
 }
+
+.vacation-tabs label:hover {
+    transition: all 0.3s ease;
+    font-size: 20px;
+    opacity: 1;
+}
+
+.vacation-tabs label:hover {
+}
+/* Активная кнопка */
+input[type="radio"]:checked + label {
+    font-size: 20px;
+    opacity: 1;
+}
+
+.tab-content {
+    display: none;
+}
+
+#beach:checked ~ .content .beach-content,
+#winter:checked ~ .content .winter-content,
+#adventure:checked ~ .content .adventure-content,
+#exotic:checked ~ .content .exotic-content,
+#romantic:checked ~ .content .romantic-content {
+    display: block;
+    }
 
  .recent_boxes { 
     box-sizing: border-box;

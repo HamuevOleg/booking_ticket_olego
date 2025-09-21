@@ -68,8 +68,387 @@
 				<button class = "search_flights">Search</button>
 			</form>
 		</div>
-<div class="text_recent"> Inspiration for your next journey </div> <span class="choice_type_of_search"> <div class="non_active_tab"> Beach Holiday </div> <div class="non_active_tab"> Winter Activities </div> <div class="active_tab"> Adventure Vacations </div> <div class="non_active_tab"> Exotic Getaways </div> <div class="non_active_tab"> Romantic Vacations </div> </span> <div class="recent_boxes"> <div class="search_box"> <div class="text_in_card"> <div class="city_header"> <div class="city">Cape Town</div> <div class="city_description">Table Mountain Adventures</div> </div> <div class="price_section"> <div class="price">$850</div> </div> </div> </div> <div class="search_box"> <div class="text_in_card"> <div class="city_header"> <div class="city">Cusco</div> <div class="city_description">Machu Picchu Trek</div> </div> <div class="price_section"> <div class="price">$1,200</div> </div> </div> </div> <div class="search_box"> <div class="text_in_card"> <div class="city_header"> <div class="city">Dubai</div> <div class="city_description">Desert Safari & Skydiving</div> </div> <div class="price_section"> <div class="price">$950</div> </div> </div> </div> <div class="search_box"> <div class="text_in_card"> <div class="city_header"> <div class="city">Reykjavik</div> <div class="city_description">Northern Lights & Ice Caves</div> </div> <div class="price_section"> <div class="price">$1,100</div> </div> </div> </div> <div class="search_box"> <div class="text_in_card"> <div class="city_header"> <div class="city">Las Vegas</div> <div class="city_description">Grand Canyon Helicopter</div> </div> <div class="price_section"> <div class="price">$750</div> </div> </div> </div> <div class="search_box"> <div class="text_in_card"> <div class="city_header"> <div class="city">Queenstown</div> <div class="city_description">Bungee & Skydiving</div> </div> <div class="price_section"> <div class="price">$1,350</div> </div> </div> </div> </div>
-	
+        <div class="text_recent">
+            Inspiration for your next journey
+        </div>
+
+        <input type="radio" id="beach" name="vacation" >
+        <input type="radio" id="winter" name="vacation">
+        <input type="radio" id="adventure" name="vacation" checked>
+        <input type="radio" id="exotic" name="vacation">
+        <input type="radio" id="romantic" name="vacation">
+
+        <!-- Красивые кнопки-лейблы -->
+        <div class="vacation-tabs">
+            <label for="beach">Beach Holiday</label>
+            <label for="winter">Winter Activities</label>
+            <label for="adventure">Adventure Vacations</label>
+            <label for="exotic">Exotic Getaways</label>
+            <label for="romantic">Romantic Vacations</label>
+        </div>
+
+        <!-- Контент для каждого таба -->
+        <div class="content">
+            <!-- Beach Holiday Content -->
+            <div class="tab-content beach-content">
+                <div class="recent_boxes">
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Maldives</div>
+                                <div class="city_description">Overwater Bungalows</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$2,500</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Bali</div>
+                                <div class="city_description">Tropical Paradise</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Hawaii</div>
+                                <div class="city_description">Sunset Beach Resort</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,800</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Santorini</div>
+                                <div class="city_description">Greek Island Escape</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,400</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Cancun</div>
+                                <div class="city_description">All-Inclusive Resort</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$980</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Miami</div>
+                                <div class="city_description">South Beach Vibes</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$750</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Winter Activities Content -->
+            <div class="tab-content winter-content">
+                <div class="recent_boxes">
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Aspen</div>
+                                <div class="city_description">Luxury Ski Resort</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$2,200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Whistler</div>
+                                <div class="city_description">Snowboarding Paradise</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,600</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Lapland</div>
+                                <div class="city_description">Northern Lights & Reindeer</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,900</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Zermatt</div>
+                                <div class="city_description">Matterhorn Views</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$2,500</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Banff</div>
+                                <div class="city_description">Rocky Mountain Adventure</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,300</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Iceland</div>
+                                <div class="city_description">Ice Hotels & Glaciers</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,700</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adventure Vacations Content -->
+            <div class="tab-content adventure-content">
+                <div class="recent_boxes">
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Cape Town</div>
+                                <div class="city_description">Table Mountain Adventures</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$850</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Cusco</div>
+                                <div class="city_description">Machu Picchu Trek</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Dubai</div>
+                                <div class="city_description">Desert Safari & Skydiving</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$950</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Reykjavik</div>
+                                <div class="city_description">Northern Lights & Ice Caves</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,100</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Las Vegas</div>
+                                <div class="city_description">Grand Canyon Helicopter</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$750</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Queenstown</div>
+                                <div class="city_description">Bungee & Skydiving</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,350</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exotic Getaways Content -->
+            <div class="tab-content exotic-content">
+                <div class="recent_boxes">
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Seychelles</div>
+                                <div class="city_description">Private Island Resort</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$3,500</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Madagascar</div>
+                                <div class="city_description">Wildlife Safari</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$2,800</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Bhutan</div>
+                                <div class="city_description">Himalayan Kingdom</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$2,200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Easter Island</div>
+                                <div class="city_description">Moai Statues Mystery</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$3,200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Socotra</div>
+                                <div class="city_description">Alien-like Landscapes</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$2,600</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Faroe Islands</div>
+                                <div class="city_description">Nordic Wilderness</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,900</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Romantic Vacations Content -->
+            <div class="tab-content romantic-content">
+                <div class="recent_boxes">
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Paris</div>
+                                <div class="city_description">City of Love Experience</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,600</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Venice</div>
+                                <div class="city_description">Gondola & Candlelight</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,400</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Tuscany</div>
+                                <div class="city_description">Wine Country Romance</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,800</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Bora Bora</div>
+                                <div class="city_description">Honeymoon Paradise</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$3,200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Prague</div>
+                                <div class="city_description">Fairy Tale Setting</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$900</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="text_in_card">
+                            <div class="city_header">
+                                <div class="city">Kyoto</div>
+                                <div class="city_description">Cherry Blossom Romance</div>
+                            </div>
+                            <div class="price_section">
+                                <div class="price">$1,500</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -86,22 +465,20 @@
 
 
 	<script is:inline>
-		const tabs = document.querySelectorAll(".blur_container div");
+        const tabs = document.querySelectorAll(".blur_container div");
 
-		tabs.forEach(tab => {
-			tab.addEventListener("click", () => {
-			tabs.forEach(t => {
-				t.classList.remove("tab_active");
-				t.classList.add("tab_default");
-			});
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => {
+                    t.classList.remove("tab_active");
+                    t.classList.add("tab_default");
+                });
 
-			tab.classList.remove("tab_default");
-			tab.classList.add("tab_active");
-			});
-		});
-
-		const choice_tabs = document.querySelectorAll(".choice_type_of_search div");
-	</script>
+                tab.classList.remove("tab_default");
+                tab.classList.add("tab_active");
+            });
+        });
+    </script>
 	</body>
 </html>
 
