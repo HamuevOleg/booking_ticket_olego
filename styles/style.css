@@ -505,3 +505,39 @@ input[type="radio"]:checked + label {
      transition: all 0.3s ease;
      cursor: pointer;
  }
+
+ .cheap_flights_container {
+    display: flex;
+    gap: 20px;
+     align-items: center;
+     margin-left: 48px;
+     margin-right: 48px;
+ }
+
+ .cheap_box {
+     height: 700px;
+     flex : 1;
+     background: #6a5acd;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     border-radius: 25px;
+     transition: all 1s ease;
+ }
+
+ .cheat_flights_container:hover .cheap_box {
+     flex : 0.5;
+ }
+
+ .cheap_box:hover {
+     flex: 3;
+     transition: all 1s ease;
+ }
+
+ .cheap_box:nth-child(1) {
+    background: url("https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=626&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+     background-position: center;
+ }
+
