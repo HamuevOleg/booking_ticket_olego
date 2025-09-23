@@ -708,4 +708,86 @@ input[type="radio"]:checked + label {
             linear-gradient(180deg, #ff3d3d, #ffe83d 50.48%, #62ab03) left / 25px 100% no-repeat,
             #fff;
     background-clip: padding-box, border-box;
+    margin-bottom: 20px;
+}
+
+
+.footer{
+    position: relative;
+    margin-top: 50px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+}
+
+.footer .footer_back{
+    border-radius: 50px;
+    background:url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\mountain.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 720px;
+    width: 1280px;
+}
+
+.footer .back_on{
+    display: flex;
+    width: 640px;
+    height: 720px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+.footer_logo{
+    position: absolute;
+    display: flex;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-54%, -50%);
+    margin: 0 auto;
+
+}
+.footer_text {
+    font-size: 64px;
+    letter-spacing: 5px;
+    font-family: sans-serif;
+    font-weight: 900;
+    text-align: center;
+
+    background-image: url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\mountain.jpg"); /* Replace with your image or gradient */
+    background-position: center;
+    background-size: 1280px 720px;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    color: transparent
+}
+
+.footer_text_2{
+    font-size: 64px;
+    letter-spacing: 5px;
+
+    font-family: sans-serif;
+    font-weight: 900;
+    text-align: center;
+    color: white;
+}
+
+.samoliot{
+    position: absolute;
+    display: flex;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-150%, -50%);
+    margin: 0 auto;
+    width: 120px;
+    transform: rotate(-20deg);
 }
