@@ -53,7 +53,7 @@ body {
 }
 
 .background__photo{
-    background-image: url("C:\Users\user\Desktop\booking_tickets\booking_ticket_olego\src\assets\back.avif");
+    background-image: url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\back.avif");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -414,7 +414,7 @@ input[type="radio"]:checked + label {
 
  .search_box:nth-child(1) {
      grid-area: 2 / 1 / 3 / 2;
-     background-image: url("C:\Users\user\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Capetown.jpg");
+     background-image: url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Capetown.jpg");
      border-radius: 20px;
      background-size: cover;
      background-position: center;
@@ -425,7 +425,7 @@ input[type="radio"]:checked + label {
  .search_box:nth-child(2) {
      border-radius: 20px;
      grid-area: 2 / 2 / 3 / 3;
-     background-image: url("C:\Users\user\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Cusco.jpg");
+     background-image: url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Cusco.jpg");
      background-size: cover;
      background-position: center;
      background-repeat: no-repeat;
@@ -434,7 +434,7 @@ input[type="radio"]:checked + label {
 
  .search_box:nth-child(3) { border-radius: 20px;
      grid-area: 1 / 1 / 2 / 3;
-     background-image: url("C:\Users\user\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Dubai.jpg");
+     background-image: url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Dubai.jpg");
      background-size: cover;
      background-position: center;
      background-repeat: no-repeat;
@@ -444,7 +444,7 @@ input[type="radio"]:checked + label {
  .search_box:nth-child(4) {
      border-radius: 20px;
      grid-area: 1 / 3 / 3 / 5;
-     background-image: url("C:\Users\user\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Reykjavik.jpg");
+     background-image: url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Reykjavik.jpg");
      background-size: cover;
      background-position: center;
      background-repeat: no-repeat;
@@ -455,7 +455,7 @@ input[type="radio"]:checked + label {
  .search_box:nth-child(5) {
      border-radius: 20px;
      grid-area: 2 / 5 / 3 / 7;
-     background-image: url("C:\Users\user\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Las_Vegas.jpeg");
+     background-image: url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Las_Vegas.jpeg");
      background-size: cover;
      background-position: center;
      background-repeat: no-repeat;
@@ -465,7 +465,7 @@ input[type="radio"]:checked + label {
  .search_box:nth-child(6) {
      border-radius: 20px;
      grid-area: 1 / 5 / 2 / 7;
-     background-image: url("C:\Users\user\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Queenstown.jpg");
+     background-image: url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\adventures\Queenstown.jpg");
      background-size: cover;
      background-position: center;
      background-repeat: no-repeat;
@@ -506,38 +506,206 @@ input[type="radio"]:checked + label {
      cursor: pointer;
  }
 
- .cheap_flights_container {
+.cheap_flights_container {
+    padding: 20px;
     display: flex;
     gap: 20px;
-     align-items: center;
-     margin-left: 48px;
-     margin-right: 48px;
- }
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    height: 600px;
+    margin: 0 auto;
+    justify-content: center;
+}
 
- .cheap_box {
-     height: 700px;
-     flex : 1;
-     background: #6a5acd;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     cursor: pointer;
-     border-radius: 25px;
-     transition: all 1s ease;
- }
+.cheap_box {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: flex 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
 
- .cheat_flights_container:hover .cheap_box {
-     flex : 0.5;
- }
+.cheap_box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+    z-index: 1;
+    transition: opacity 0.5s ease;
+}
 
- .cheap_box:hover {
-     flex: 3;
-     transition: all 1s ease;
- }
+.cheap_box:hover::before {
+    opacity: 0.9;
+}
 
- .cheap_box:nth-child(1) {
-    background: url("https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=626&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+.cheap_box:hover {
+    flex: 3;
+}
+
+.cheap_box:nth-child(1) {
+    background: url("https://www.travelandleisure.com/thmb/N_r_xMvHfYjCHgZE-9bAWNiVAwU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TAL-conrad-maldives-rangali-island-MALDIVESHOTELS1024-6dfdeac00fec4f69893e7576b5896da9.jpg");
     background-size: cover;
-     background-position: center;
- }
+    background-position: center;
+}
 
+.cheap_box:nth-child(2) {
+    background: url("https://media.cntraveller.com/photos/63f37018ea053d878b345cb2/3:2/w_3870,h_2580,c_limit/London-GettyImages-585295947.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.cheap_box:nth-child(3) {
+    background: url("https://offloadmedia.feverup.com/parissecret.com/wp-content/uploads/2022/03/18181324/shutterstock_2449868129-1-1024x684.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.cheap_box:nth-child(4) {
+    background: url("https://res.cloudinary.com/oasisapp/image/upload/c_fill,w_1200/1/japan/kyoto-temple-19700");
+    background-size: cover;
+    background-position: center;
+}
+
+.flight_info {
+    margin-left: 20px;
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 30px;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.7));
+}
+
+.cheap_box:hover .flight_info {
+    transform: translateY(0);
+}
+
+.destination {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cheap_flights_container .city_name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.price_container {
+
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.cheap_flights_container .price {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.cheap_flights_container .price_label {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.cheap_flights_container .stars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.cheap_flights_container .details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.cheap_box:hover .details {
+    opacity: 1;
+}
+
+.detail_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail_icon {
+    width: 20px;
+    height: 20px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.book_button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #00999c;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.cheap_box:hover .book_button {
+    opacity: 1;
+    transform: translateY(0);
+    animation-delay: 0.4s;
+}
+
+.book_button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.chart {
+    display: flex;
+    align-items: center;
+    width: 1400px;
+    height: 600px;
+    margin: 0 auto;
+    justify-content: center;
+    border-radius: 40px;
+    border-left: 25px solid transparent;
+    border: 1px solid #d6d6d6;
+    background:
+            linear-gradient(180deg, #ff3d3d, #ffe83d 50.48%, #62ab03) left / 25px 100% no-repeat,
+            #fff;
+    background-clip: padding-box, border-box;
+}
