@@ -1,35 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import FlightSearch from '../components/FlightSearch.astro';
-import { searchFlightOffers } from '../lib/amadeus';
-import { format } from 'date-fns';
-
-let flightOffers = [];
-const origin = Astro.url.searchParams.get('from');
-const destination = Astro.url.searchParams.get('to');
-const departDate = Astro.url.searchParams.get('depart');
-const returnDate = Astro.url.searchParams.get('return'); // Assuming you might add a return date field
-
-if (origin && destination && departDate) {
-  try {
-    flightOffers = await searchFlightOffers({
-      origin,
-      destination,
-      departureDate: departDate,
-      returnDate: returnDate, // This can be undefined if not provided
-      adults: 1, // Assuming 1 adult for now
-      travelClass: 'ECONOMY',
-    });
-  } catch (e) {
-    console.error(e);
-    // Handle error, maybe show a message to the user
-  }
-}
 ---
 
 <!DOCTYPE html>
 <html>
 	<head>
+        <meta charset="UTF-8">
 		<link rel = "stylesheet" href = "../../styles/style.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,18 +60,98 @@ if (origin && destination && departDate) {
 					</div>
 				</div>
 			</span>
-			<form class ="main_form" method="GET" action="/">
+			<!-- <form class ="main_form" method="GET" action="/">
 				<input type="text" id = "input_field" name="from" placeholder="From" value={origin || ''}>
 				<!-- <div class="line_one"></div> -->
-				<input type="text" id = "input_field" name="to" placeholder="To" value={destination || ''}>
+				<!-- <input type="text" id = "input_field" name="to" placeholder="To" value={destination || ''}> -->
 				<!-- <div class="line_one"></div> -->
-				<input type="date" id = "input_field" name="depart" placeholder="Depart" value={departDate || format(new Date(), 'yyyy-MM-dd')}>
+				<!-- <input type="date" id = "input_field" name="depart" placeholder="Depart" value={departDate || format(new Date(), 'yyyy-MM-dd')}> -->
 				<!-- <div class="line_one"></div> -->
-				<input type="text" class = "input_field" name="class" placeholder="Type of class">
-				<button class = "search_flights">Search</button>
-			</form>
-            {flightOffers.length > 0 && <FlightSearch flightOffers={flightOffers} />}
-		</div>
+				<!-- <input type="text" class = "input_field" name="class" placeholder="Type of class"> -->
+				<!-- <button class = "search_flights">Search</button> -->
+			<!-- </form> -->
+            <!-- {flightOffers.length > 0 && <FlightSearch flightOffers={flightOffers} />} -->
+		<!-- </div> --> -->
+
+        <Layout title="Flight Search">
+            <main>
+                <h1>Find Your Next Flight</h1>
+            <FlightSearch />
+        </main>
+        </Layout>
+
+            <form class="main_form" id="flightSearchForm">
+        <div class="form-row">
+            <div class="input-group">
+                <label class="input-label">from</label>
+                <input type="text" class="input_field" name="from" placeholder="City from" required>
+            </div>
+            <div class="input-group">
+                <label class="input-label">to</label>
+                <input type="text" class="input_field" name="to" placeholder="City to" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="input-group date-group">
+                <div class="input-group">
+                    <label class="input-label">Departure Date</label>
+                    <input type="date" class="input_field" name="departureDate" required>
+                </div>
+                <div class="input-group">
+                    <label class="input-label">Return Date</label>
+                    <input type="date" class="input_field" name="returnDate">
+                </div>
+            </div>
+            <div class="input-group">
+                <label class="input-label">Class</label>
+                <select class="input_field" name="travelClass">
+                    <option value="ECONOMY">Economy</option>
+                    <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                    <option value="BUSINESS">Business</option>
+                    <option value="FIRST">First Class</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="passenger-group">
+                <div class="input-group passenger-input">
+                    <label class="input-label">Adult (12+)</label>
+                    <input type="number" class="input_field" name="adults" min="1" max="9" value="1">
+                </div>
+                <div class="input-group passenger-input">
+                    <label class="input-label">Children (2-11)</label>
+                    <input type="number" class="input_field" name="children" min="0" max="9" value="0">
+                </div>
+                <div class="input-group passenger-input">
+                    <label class="input-label">Infants (0-2)</label>
+                    <input type="number" class="input_field" name="infants" min="0" max="9" value="0">
+                </div>
+            </div>
+            <button type="submit" class="search_flights">
+                <span id="searchButtonText">Search Flights</span>
+            </button>
+        </div>
+    </form>
+
+    <!-- Модальное окно с результатами -->
+    <div class="search-results-modal" id="searchResultsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Search Results</h2>
+                <button class="close-modal" id="closeModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M19.4697 3.46967C19.7626 3.17678 20.2374 3.17678 20.5303 3.46967C20.8232 3.76256 20.8232 4.23744 20.5303 4.53033L13.0607 12L20.5303 19.4697C20.8232 19.7626 20.8232 20.2374 20.5303 20.5303C20.2374 20.8232 19.7626 20.8232 19.4697 20.5303L12 13.0607L4.53033 20.5303C4.23744 20.8232 3.76256 20.8232 3.46967 20.5303C3.17678 20.2374 3.17678 19.7626 3.46967 19.4697L10.9393 12L3.46967 4.53033C3.17678 4.23744 3.17678 3.76256 3.46967 3.46967C3.76256 3.17678 4.23744 3.17678 4.53033 3.46967L12 10.9393L19.4697 3.46967Z" fill="black"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="searchResults">
+                <!-- Результаты будут загружены сюда -->
+            </div>
+        </div>
+    </div>
+
         <div class="text_recent">
             Inspiration for your next journey
         </div>
@@ -705,6 +762,164 @@ if (origin && destination && departDate) {
                 tab.classList.add("tab_active");
             });
         });
+
+
+        // Set minimum date (today)
+        const today = new Date().toISOString().split('T')[0];
+        document.querySelector('input[name="departureDate"]').min = today;
+        document.querySelector('input[name="returnDate"]').min = today;
+
+        // Update minimum return date when departure date changes
+        document.querySelector('input[name="departureDate"]').addEventListener('change', function() {
+            const returnDateInput = document.querySelector('input[name="returnDate"]');
+            returnDateInput.min = this.value;
+            if (returnDateInput.value && returnDateInput.value < this.value) {
+                returnDateInput.value = '';
+            }
+        });
+
+        // Check the number of infants (not more than adults)
+        document.querySelector('input[name="infants"]').addEventListener('change', function() {
+            const adults = parseInt(document.querySelector('input[name="adults"]').value);
+            if (parseInt(this.value) > adults) {
+                this.value = adults;
+                alert('The number of infants cannot exceed the number of adults');
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('flightSearchForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const searchParams = {
+                from: formData.get('from'),
+                to: formData.get('to'),
+                departureDate: formData.get('departureDate'),
+                returnDate: formData.get('returnDate') || null,
+                adults: parseInt(formData.get('adults')),
+                children: parseInt(formData.get('children')),
+                infants: parseInt(formData.get('infants')),
+                travelClass: formData.get('travelClass')
+            };
+
+            // Show the modal
+            const modal = document.getElementById('searchResultsModal');
+            const resultsContainer = document.getElementById('searchResults');
+            
+            modal.classList.add('show');
+            
+            // Show loading indicator
+            resultsContainer.innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Searching for the best deals...</p>
+                </div>
+            `;
+
+            try {
+                // API call will be here
+                const results = await searchFlights(searchParams);
+                displayResults(results, searchParams);
+            } catch (error) {
+                resultsContainer.innerHTML = `
+                    <div class="no-results">
+                        <h3>An error occurred</h3>
+                        <p>Could not find flights. Please try changing your search parameters.</p>
+                    </div>
+                `;
+            }
+        });
+
+        // Close the modal
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('searchResultsModal').classList.remove('show');
+        });
+
+        // Закрытие по клику на фон
+        document.getElementById('searchResultsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('show');
+            }
+        });
+
+        // Функция поиска (мокап для демонстрации)
+        async function searchFlights(params) {
+            // Имитация задержки API
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Мокап данных
+            return [
+                {
+                    id: '1',
+                    departure: { iataCode: params.from, at: '2024-09-25T10:30:00' },
+                    arrival: { iataCode: params.to, at: '2024-09-25T14:45:00' },
+                    carrier: 'Turkish Airlines',
+                    price: { total: '450', currency: 'USD' },
+                    duration: '4h 15m'
+                },
+                {
+                    id: '2',
+                    departure: { iataCode: params.from, at: '2024-09-25T16:20:00' },
+                    arrival: { iataCode: params.to, at: '2024-09-25T20:55:00' },
+                    carrier: 'Lufthansa',
+                    price: { total: '520', currency: 'USD' },
+                    duration: '4h 35m'
+                }
+            ];
+        }
+
+        // Отображение результатов
+        function displayResults(flights, searchParams) {
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (!flights || flights.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="no-results">
+                        <h3>Рейсы не найдены</h3>
+                        <p>Попробуйте изменить параметры поиска</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const resultsHTML = flights.map(flight => `
+                <div class="flight-offer">
+                    <div class="flight-route">
+                        <div class="flight-location">
+                            <div class="flight-code">${flight.departure.iataCode}</div>
+                            <div class="flight-time">${formatTime(flight.departure.at)}</div>
+                        </div>
+                        <div class="flight-arrow">-></div>
+                        <div class="flight-location">
+                            <div class="flight-code">${flight.arrival.iataCode}</div>
+                            <div class="flight-time">${formatTime(flight.arrival.at)}</div>
+                        </div>
+                    </div>
+                    <div class="flight-details">
+                        <div class="flight-info">
+                            <span> ${flight.carrier}</span>
+                            <span> ${flight.duration}</span>
+                            <span> ${searchParams.adults + searchParams.children + searchParams.infants} passengers.</span>
+                        </div>
+                        <div class="flight-price">${flight.price.total} ${flight.price.currency}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            resultsContainer.innerHTML = `
+                <div class="flight-results">
+                    ${resultsHTML}
+                </div>
+            `;
+        }
+
+        // Форматирование времени
+        function formatTime(isoString) {
+            const date = new Date(isoString);
+            return date.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+        }
+
     </script>
 	</body>
 </html>

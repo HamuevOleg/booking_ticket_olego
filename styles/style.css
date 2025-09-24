@@ -218,76 +218,277 @@ a{
     transition: all 0.3s ease;
     font-size: 18px;
 }
-.main_form{
+
+.main_form {
     backdrop-filter: blur(8px);
     display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 40px;
-    background-color: rgba(255, 255, 255, 0.7);
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 8px;
-    margin-right: 300px;
-    margin-left:  300px;
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 800px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
     align-items: center;
-    border-radius: 48px;
+    flex-wrap: wrap;
 }
 
-#input_field{
-    /* backdrop-filter: blur(8px);
-    background-color: rgba(255, 255, 255, 0.2); */
-    width: 200px;
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+}
+
+.input-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.input_field {
     height: 48px;
-    border: 1px solid #ffffff;
-    border-radius: 32px;
-    padding-left: 16px;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    padding: 0 16px;
     font-size: 16px;
     font-weight: 400;
-    color: #000000;
+    color: #333;
     transition: all 0.3s ease;
-    cursor: pointer;
+    background: white;
+}
+
+.input_field:focus {
+    outline: none;
+    border-color: #00B7B9;
+    box-shadow: 0 0 0 3px rgba(0, 183, 185, 0.1);
+}
+
+.input_field:hover {
+    border-color: #00B7B9;
+}
+
+/* Поля для дат */
+.date-group {
+    display: flex;
+    gap: 12px;
+    flex: 2;
+}
+
+/* Группа пассажиров */
+.passenger-group {
+    display: flex;
+    gap: 12px;
+    flex: 2;
+}
+
+.passenger-input {
     flex: 1;
 }
 
-#input_field:hover{
-        border: 1px solid #c6c5c5;
-}
-
-.input_field{
-    width: 200px;
-    height: 48px;
-    border: 1px solid #ffffff;
-    border-radius: 32px;
-    padding-left: 16px;
-    font-size: 16px;
-    font-weight: 400;
-    color: #000000;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    flex: 1;
-}
-
-.input_field:hover{
-        border: 1px solid #c6c5c5;
-}
-
-
-.search_flights{
-    width: 100px;
-    height: 48px;
-    background-color: #00999c;
-    border-radius: 32px;
+/* Кнопка поиска */
+.search_flights {
+    height: 56px;
+    background: linear-gradient(135deg, #00B7B9, #00999c);
+    border-radius: 16px;
     border: none;
-    color: #ffffff;
-    font-size: 16px;
+    color: white;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    min-width: 150px;
+    box-shadow: 0 4px 15px rgba(0, 183, 185, 0.3);
 }
 
-.search_flights:hover{
-    background-color: #00B7B9;
-    transform: translateY(-4px);
+.search_flights:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 183, 185, 0.4);
+}
+
+/* Модальное окно с результатами */
+.search-results-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.search-results-modal.show {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 900px;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    transform: translateY(50px);
+    transition: all 0.3s ease;
+}
+
+.search-results-modal.show .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+/* Стили для результатов поиска */
+.flight-results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.flight-offer {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.flight-offer:hover {
+    border-color: #00B7B9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 183, 185, 0.15);
+}
+
+.flight-route {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.flight-location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flight-code {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+.flight-time {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.flight-arrow {
+    color: #00B7B9;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.flight-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.flight-info {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.flight-info span {
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.flight-price {
+    font-size: 28px;
+    font-weight: 700;
+    color: #00B7B9;
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #00B7B9;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
 }
 
 .line_one{
