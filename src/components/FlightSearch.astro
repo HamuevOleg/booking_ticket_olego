@@ -1,46 +1,49 @@
 <!-- src/components/FlightSearch.astro -->
 ---
-const { flightOffers } = Astro.props;
+import { searchFlightOffers } from '../lib/amadeus';
+
+// This is a server-side function call
+const flightOffers = await searchFlightOffers();
 ---
 
 <div class="flight-search-results">
-    <h2>Flight Search Results</h2>
-
-    {!flightOffers || flightOffers.length === 0 ? (
-            <p>No flights found. Try different search parameters.</p>
-    ) : (
-            <ul>
-                {flightOffers.map(offer => (
-                        <li class="flight-offer">
-                            <div class="flight-route">
-                                <span class="from">{offer.departure.iataCode}</span>
-                                <span class="arrow">→</span>
-                                <span class="to">{offer.arrival.iataCode}</span>
-                            </div>
-                            <div class="flight-details">
-                                <span class="carrier">{offer.carrier}</span>
-                                <span class="price">{offer.price.total} {offer.price.currency}</span>
-                            </div>
-                        </li>
-                ))}
-            </ul>
-    )}
+  <h2>Flight Search Results</h2>
+  
+  {flightOffers.length === 0 ? (
+    <p>No flights found. Try different search parameters.</p>
+  ) : (
+    <ul>
+      {flightOffers.map(offer => (
+        <li class="flight-offer">
+          <div class="flight-route">
+            <span class="from">{offer.departure.iataCode}</span>
+            <span class="arrow">→</span>
+            <span class="to">{offer.arrival.iataCode}</span>
+          </div>
+          <div class="flight-details">
+            <span class="carrier">{offer.carrier}</span>
+            <span class="price">{offer.price.total} {offer.price.currency}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  )}
 </div>
 
 <style>
-    .flight-search-results {
-        margin: 2rem 0;
-    }
-    .flight-offer {
-        border: 1px solid #ddd;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        border-radius: 4px;
-        display: flex;
-        justify-content: space-between;
-    }
-    .arrow {
-        margin: 0 0.5rem;
-    }
-    /* Add more styles as needed */
+  .flight-search-results {
+    margin: 2rem 0;
+  }
+  .flight-offer {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .arrow {
+    margin: 0 0.5rem;
+  }
+  /* Add more styles as needed */
 </style>
