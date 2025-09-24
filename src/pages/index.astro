@@ -1,5 +1,30 @@
 ---
-import Chart from 'chart.js/auto';
+import Layout from '../layouts/Layout.astro';
+import FlightSearch from '../components/FlightSearch.astro';
+import { searchFlightOffers } from '../lib/amadeus';
+import { format } from 'date-fns';
+
+let flightOffers = [];
+const origin = Astro.url.searchParams.get('from');
+const destination = Astro.url.searchParams.get('to');
+const departDate = Astro.url.searchParams.get('depart');
+const returnDate = Astro.url.searchParams.get('return'); // Assuming you might add a return date field
+
+if (origin && destination && departDate) {
+  try {
+    flightOffers = await searchFlightOffers({
+      origin,
+      destination,
+      departureDate: departDate,
+      returnDate: returnDate, // This can be undefined if not provided
+      adults: 1, // Assuming 1 adult for now
+      travelClass: 'ECONOMY',
+    });
+  } catch (e) {
+    console.error(e);
+    // Handle error, maybe show a message to the user
+  }
+}
 ---
 
 <!DOCTYPE html>
@@ -58,16 +83,17 @@ import Chart from 'chart.js/auto';
 					</div>
 				</div>
 			</span>
-			<form class ="main_form">
-				<input type="text" id = "input_field" placeholder="From">
+			<form class ="main_form" method="GET" action="/">
+				<input type="text" id = "input_field" name="from" placeholder="From" value={origin || ''}>
 				<!-- <div class="line_one"></div> -->
-				<input type="text" id = "input_field" placeholder="To">
+				<input type="text" id = "input_field" name="to" placeholder="To" value={destination || ''}>
 				<!-- <div class="line_one"></div> -->
-				<input type="text" id = "input_field" placeholder="Depart">
+				<input type="date" id = "input_field" name="depart" placeholder="Depart" value={departDate || format(new Date(), 'yyyy-MM-dd')}>
 				<!-- <div class="line_one"></div> -->
-				<input type="text" class = "input_field" placeholder="Type of class">
+				<input type="text" class = "input_field" name="class" placeholder="Type of class">
 				<button class = "search_flights">Search</button>
 			</form>
+            {flightOffers.length > 0 && <FlightSearch flightOffers={flightOffers} />}
 		</div>
         <div class="text_recent">
             Inspiration for your next journey
@@ -629,18 +655,36 @@ import Chart from 'chart.js/auto';
         <div class="text_recent">Dynamics of flight price changes</div>
             <div class="chart">
             </div>
-        <div class="footer">
-            <div class="footer_back">
-                <div class="footer_logo">
-                    <h1 class = "footer_text">OLE</h1><h1 class = "footer_text_2">GO</h1>
+        <footer class="footer">
+            <div class="clouds">
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+            </div>
+
+            <div class="footer_stars">
+                <div class="footer_star"></div>
+                <div class="footer_star"></div>
+                <div class="footer_star"></div>
+                <div class="footer_star"></div>
+                <div class="footer_star"></div>
+            </div>
+
+            <div class="footer_wrapper">
+                <div class="aircraft-trail">
+                    <div class="aircraft_line"></div>
+                    <div class="aircraft_line"></div>
                 </div>
-                <svg class = "samoliot" xmlns="http://www.w3.org/2000/svg" width="181" height="174" viewBox="0 0 181 174" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 181 174" fill="none">
                     <path d="M66.6452 173.087L53.4744 173.087L75.4256 100.593L27.133 96.0618L9.57198 123.247H0.791507L9.57199 87L0.791504 50.7529H9.57199L27.133 77.9383L75.4256 73.4074L53.4744 0.913087L66.6452 0.913086L110.548 73.4074L136.889 73.4074C144.177 73.4074 180.791 75.1064 180.791 87C180.791 98.8936 144.177 100.593 136.889 100.593L110.548 100.593L66.6452 173.087Z" fill="white"/>
                 </svg>
-                <div class="back_on">
-                </div>
             </div>
-        </div>
+
+            <div class="runway-lights"></div>
+
+            <div class="footer-content">
+                <h1 class="company-name">OLEGO</h1>
+            </div>
+        </footer>
 
 
 

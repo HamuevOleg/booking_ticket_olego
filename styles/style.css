@@ -712,82 +712,267 @@ input[type="radio"]:checked + label {
 }
 
 
-.footer{
+.footer {
     position: relative;
-    margin-top: 50px;
-    margin: 0 auto;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #5a6c7d 50%, #95a5a6 75%, #ecf0f1 100%);
+    padding: 80px 20px 60px;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+            radial-gradient(circle at 15% 30%, rgba(255,255,255,0.05) 0%, transparent 40%),
+            radial-gradient(circle at 85% 60%, rgba(0,0,0,0.1) 0%, transparent 50%),
+            radial-gradient(circle at 50% 10%, rgba(255,255,255,0.03) 0%, transparent 60%);
+    animation: drift 25s ease-in-out infinite;
+}
+
+@keyframes drift {
+    0%, 100% { transform: translateX(0) scale(1); opacity: 0.3; }
+    50% { transform: translateX(30px) scale(1.1); opacity: 0.6; }
+}
+
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50px;
+    animation: cloud-move 30s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50px;
+}
+
+.cloud:nth-child(1) {
+    width: 80px;
+    height: 30px;
+    top: 20%;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.cloud:nth-child(1)::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 10px;
+}
+
+.cloud:nth-child(1)::after {
+    width: 40px;
+    height: 40px;
+    top: -15px;
+    right: 15px;
+}
+
+.cloud:nth-child(2) {
+    width: 60px;
+    height: 25px;
+    top: 50%;
+    left: -80px;
+    animation-delay: 15s;
+}
+
+.cloud:nth-child(2)::before {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 5px;
+}
+
+.cloud:nth-child(2)::after {
+    width: 35px;
+    height: 35px;
+    top: -10px;
+    right: 10px;
+}
+
+@keyframes cloud-move {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+}
+
+.footer_wrapper {
+    position: absolute;
+    top: 30%;
+    right: -250px;
     display: flex;
     align-items: center;
+    animation: aircraft-fly 20s linear infinite;
+    z-index: 2;
+}
+
+.aircraft-trail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    background-color: #000000;
+    position: relative;
+    height: 30px;
+    margin-right: 15px;
 }
 
-.footer .footer_back{
-    border-radius: 50px;
-    background:url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\mountain.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 720px;
-    width: 1280px;
+.aircraft_line:nth-child(1) {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.05) 70%, transparent 100%);
+    margin-bottom: 8px;
 }
 
-.footer .back_on{
-    display: flex;
-    width: 640px;
-    height: 720px;
-    border-bottom-left-radius: 50px;
-    border-top-left-radius: 50px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
+.aircraft_line:nth-child(2) {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.05) 70%, transparent 100%);
+    margin-top: 8px;
 }
 
-.footer_logo{
+.aircraft-trail::before {
+    content: '';
     position: absolute;
-    display: flex;
-    z-index: 5;
-    top: 50%;
-    left: 50%;
-    transform: translate(-54%, -50%);
-    margin: 0 auto;
-
+    right: 0;
+    top: -8px;
+    color: rgba(255,255,255,0.2);
+    font-size: 16px;
+    transform: rotate(-45deg)
 }
-.footer_text {
-    font-size: 64px;
-    letter-spacing: 5px;
-    font-family: sans-serif;
-    font-weight: 900;
+
+@keyframes aircraft-fly {
+    0% { left: 0;
+    }
+    100% { left: calc(100vw + 200px); }
+}
+
+.aircraft-trail svg {
+    width: 25px;
+    height: 25px;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.1));
+}
+
+
+.footer-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.company-name {
+    font-size: 4.5rem;
+    font-weight: 300;
+    color: transparent;
     text-align: center;
-
-    background-image: url("C:\Users\oleg.rune\Desktop\booking_tickets\booking_ticket_olego\src\assets\mountain.jpg"); /* Replace with your image or gradient */
-    background-position: center;
-    background-size: 1280px 720px;
-
-    -webkit-background-clip: text;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg,
+    #2c3e50 0%,
+    #34495e 20%,
+    #7f8c8d 40%,
+    #bdc3c7 60%,
+    #ecf0f1 80%,
+    #ffffff 100%);
     background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-    color: transparent
+    -webkit-background-clip: text;
+    background-size: 200% 200%;
+    animation: text-shimmer 4s ease-in-out infinite;
+    position: relative;
+    text-shadow: 0 0 30px rgba(255,255,255,0.1);
 }
 
-.footer_text_2{
-    font-size: 64px;
-    letter-spacing: 5px;
-
-    font-family: sans-serif;
-    font-weight: 900;
-    text-align: center;
-    color: white;
-}
-
-.samoliot{
+.company-name::after {
+    content: 'Build your Dream';
     position: absolute;
-    display: flex;
-    z-index: 5;
-    top: 50%;
+    bottom: -30px;
     left: 50%;
-    transform: translate(-150%, -50%);
-    margin: 0 auto;
-    width: 120px;
-    transform: rotate(-20deg);
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+    color: rgba(255,255,255,0.4);
+    text-transform: lowercase;
+}
+
+@keyframes text-shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.runway-lights {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.1) 10%,
+    transparent 15%,
+    rgba(255,255,255,0.1) 25%,
+    transparent 30%,
+    rgba(255,255,255,0.1) 40%,
+    transparent 45%,
+    rgba(255,255,255,0.1) 55%,
+    transparent 60%,
+    rgba(255,255,255,0.1) 70%,
+    transparent 75%,
+    rgba(255,255,255,0.1) 85%,
+    transparent 90%,
+    rgba(255,255,255,0.1) 100%);
+    animation: runway-blink 2s linear infinite;
+}
+
+@keyframes runway-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+.footer_stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.footer_star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.footer_star:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+.footer_star:nth-child(2) { top: 30%; left: 80%; animation-delay: 1s; }
+.footer_star:nth-child(3) { top: 60%; left: 15%; animation-delay: 2s; }
+.footer_star:nth-child(4) { top: 70%; left: 70%; animation-delay: 0.5s; }
+.footer_star:nth-child(5) { top: 40%; left: 60%; animation-delay: 1.5s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
 }
